@@ -1,13 +1,13 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 function Menu() {
     return (
         <nav class="menu">
             <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Пользователи</a></li>
-                <li><a href="#">Заметки</a></li>
+                <li><Link to='/'>Пользователи</Link></li>
+                <li><Link to='/projects'>Проекты</Link></li>
+                <li><Link to='/todos'>Заметки</Link></li>
             </ul>
         </nav>
     )

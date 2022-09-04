@@ -10,14 +10,14 @@ from .serializers import ProjectModelSerializer, ToDoModelSerializer
 # Create your views here.
 
 
-class ProjectPagination(PageNumberPagination):
-    page_size = 10
+# class ProjectPagination(PageNumberPagination):
+#    page_size = 10
 
 
 class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
-    pagination_class = ProjectPagination
+    #    pagination_class = ProjectPagination
 
     def get_queryset(self):
         name = self.request.query_params.get("name", "")
@@ -27,14 +27,14 @@ class ProjectModelViewSet(ModelViewSet):
         return projects
 
 
-class ToDoPagination(PageNumberPagination):
-    page_size = 20
+# class ToDoPagination(PageNumberPagination):
+#    page_size = 20
 
 
 class ToDoModelViewSet(ModelViewSet):
     queryset = ToDo.objects.all()
     serializer_class = ToDoModelSerializer
-    pagination_class = ToDoPagination
+    #    pagination_class = ToDoPagination
     filterset_class = ToDoFilter
 
     def destroy(self, request, *args, **kwargs):
