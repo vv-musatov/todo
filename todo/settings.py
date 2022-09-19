@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "drf_yasg",
     "django_filters",
     "corsheaders",
     "rest_framework.authtoken",
@@ -72,7 +73,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ]
+    ],
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.QueryParameterVersioning",
     # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     # "PAGE_SIZE": 100,
 }
