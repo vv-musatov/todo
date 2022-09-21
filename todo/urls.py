@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from graphene_django.views import GraphQLView
 from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import (TokenObtainPairView,
@@ -51,6 +52,7 @@ urlpatterns = [
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
-    schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('swagger/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger-ui'),
+    schema_view.without_ui(cache_timeout=0), name="schema-json"),
+    path("swagger/", schema_view.with_ui("swagger",cache_timeout=0), name="schema-swagger-ui"),
+    path("graphql/", GraphQLView.as_view(graphiql=True)),
 ]
