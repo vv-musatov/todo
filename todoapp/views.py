@@ -33,6 +33,7 @@ class ProjectModelViewSet(ModelViewSet):
 
 
 class ToDoModelViewSet(ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
     queryset = ToDo.objects.all()
     serializer_class = ToDoModelSerializer
     #    pagination_class = ToDoPagination
